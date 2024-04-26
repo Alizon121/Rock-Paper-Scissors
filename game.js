@@ -25,7 +25,13 @@ let ties = 0;
 
 /***************************** HELPER FUNCTIONS ******************************/
 function printHelp() {
-  // Your code here 
+  const outputs = 
+  console.log("  Type 'r' for Rock");
+      console.log("  Type 'p' for Paper");
+      console.log("  Type 's' for Scissors");
+      console.log("  Type 'q' to quit");
+      console.log("  Type 'h' for a list of valid commands\n");
+
 }
 
 function getWinner(move1, move2) {
@@ -48,11 +54,7 @@ function promptInput(rl) {
 
     if (cmd === 'h') {
       console.log("\nHelp:\n");
-      console.log("  Type 'r' for Rock");
-      console.log("  Type 'p' for Paper");
-      console.log("  Type 's' for Scissors");
-      console.log("  Type 'q' to quit");
-      console.log("  Type 'h' for a list of valid commands\n");
+      printHelp()
     } else if (cmd === 'q') {
       rl.close();
       return;
@@ -76,11 +78,8 @@ function promptInput(rl) {
       }
     } else {
       console.log("\nInvalid command.\n");
-      console.log("  Type 'r' for Rock");
-      console.log("  Type 'p' for Paper");
-      console.log("  Type 's' for Scissors");
-      console.log("  Type 'q' to quit");
-      console.log("  Type 'h' for a list of valid commands\n");
+      // Instance of Help
+      printHelp()
     }
 
     promptInput(rl);
@@ -93,12 +92,9 @@ function initializeGame() {
     input: process.stdin,
     output: process.stdout
   });
-  console.log("Welcome to Rock/Paper/Scissors\n");
-  console.log("  Type 'r' for Rock");
-  console.log("  Type 'p' for Paper");
-  console.log("  Type 's' for Scissors");
-  console.log("  Type 'q' to quit");
-  console.log("  Type 'h' for a list of valid commands\n");
+
+  // Instance of Help
+  printHelp() 
 
   promptInput(rl);
 }
