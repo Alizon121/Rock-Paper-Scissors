@@ -35,32 +35,20 @@ function printHelp() {
 }
 
 function getWinner(move1, move2) {
-   move1 = Object.keys(VALID_MOVES);
-   const validMoveKeys = Object.keys(VALID_MOVES);
-  const randomIndex = Math.floor(Math.random() * validMoveKeys.length);
-   move2 = validMoveKeys[randomIndex];
+if (move1 === move2) {
+  ties++;
+  return 0
+} 
+else if (VALID_MOVES[move1].winsAgainst === move2) {
+  wins++;
+  return 1;
+}
 
-
-   
-  if (move1 === move2) { // tie
-    console.log("You tie.\n");
-    return 0
-    
-    // ties++;
-  }
-  else if (VALID_MOVES[move1] === move2) { // win
-    console.log("You win!\n");
-    return 1
-    
-    wins++;
-  } else { // loss
-    console.log("You lose...\n");
-    return -1
-
-
-    // losses++;
-  }
-
+else { // loss
+         console.log("You lose...\n");
+         losses++;
+         return -1
+     }
 
 }
 
@@ -77,23 +65,37 @@ function promptInput(rl) {
   console.log(`${wins} wins - ${losses} losses - ${ties} ties`);
   rl.question('> ', (cmd) => {
     cmd = cmd.toLowerCase();
-
     if (cmd === 'h') {
       console.log("\nHelp:\n");
       printHelp()
-    } else if (cmd === 'q') {
+    }
+    else if (cmd === 'q') {
       rl.close();
       return;
-    } else if (VALID_MOVES[cmd]){
-      
-      // const validMoveKeys = Object.keys(VALID_MOVES);
+    } 
+    
+  //   // else if (VALID_MOVES[cmd]){
+  //   //   const validMoveKeys = Object.keys(VALID_MOVES);
+  //   //   const randomIndex = Math.floor(Math.random() * validMoveKeys.length);
+  //   //   const cpu = validMoveKeys[randomIndex];
 
-      //  Where the if statement for playing the game was
+  //   //   console.log(`You pick ${cmd}, computer picks ${cpu}.`);
 
-      console.log(`You pick ${cmd}, computer picks ${cpu}.`);
+  //   //   if (cmd === cpu) { // tie
+  //   //     console.log("You tie.\n");
+  //   //     ties++;
+  //   //   }
+  //   //   else if (VALID_MOVES[cmd].winsAgainst === cpu) { // win
+  //   //     console.log("You win!\n");
+  //   //     wins++;
+  //   //   } else { // loss
+  //   //     console.log("You lose...\n");
+  //   //     losses++;
+  //   //   }
 
-      
-    } else {
+
+  //   // } 
+       else {
       console.log("\nInvalid command.\n");
       // Instance of Help
       printHelp()
