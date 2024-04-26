@@ -186,7 +186,7 @@ __test/phase-03-getCPUMove-spec.js__. You can run the test specs in the file
 with the following command:
 
 ```shell
-npm test test/phase-03-getCPUMove-spec.js
+çnpm test test/phase-03-getCPUMove-spec.js
 ```
 
 Can you guess what the test specs for `getCPUMove()` are testing for?
