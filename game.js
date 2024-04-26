@@ -78,12 +78,9 @@ function promptInput(rl) {
     } 
     
     else if (VALID_MOVES[cmd]){
-      // const validMoveKeys = Object.keys(VALID_MOVES);
-      //  const randomIndex = Math.floor(Math.random() * validMoveKeys.length);
-      //  const cpu = validMoveKeys[randomIndex];
-       console.log(`You pick ${cmd}, computer picks ${cpu}.`);
-
-      getWinner(cmd, cpu)
+       console.log(`You pick ${cmd}, computer picks ${getCPUMove()}.`);
+      
+      getWinner(cmd, getCPUMove())
     }
 
   //   // } 
