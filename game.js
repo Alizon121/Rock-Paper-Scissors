@@ -74,25 +74,14 @@ function promptInput(rl) {
       return;
     } 
     
-  //   // else if (VALID_MOVES[cmd]){
-  //   //   const validMoveKeys = Object.keys(VALID_MOVES);
-  //   //   const randomIndex = Math.floor(Math.random() * validMoveKeys.length);
-  //   //   const cpu = validMoveKeys[randomIndex];
+    else if (VALID_MOVES[cmd]){
+      const validMoveKeys = Object.keys(VALID_MOVES);
+       const randomIndex = Math.floor(Math.random() * validMoveKeys.length);
+       const cpu = validMoveKeys[randomIndex];
+       console.log(`You pick ${cmd}, computer picks ${cpu}.`);
 
-  //   //   console.log(`You pick ${cmd}, computer picks ${cpu}.`);
-
-  //   //   if (cmd === cpu) { // tie
-  //   //     console.log("You tie.\n");
-  //   //     ties++;
-  //   //   }
-  //   //   else if (VALID_MOVES[cmd].winsAgainst === cpu) { // win
-  //   //     console.log("You win!\n");
-  //   //     wins++;
-  //   //   } else { // loss
-  //   //     console.log("You lose...\n");
-  //   //     losses++;
-  //   //   }
-
+      getWinner(cmd, cpu)
+    }
 
   //   // } 
        else {
