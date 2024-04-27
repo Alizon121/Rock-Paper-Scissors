@@ -60,7 +60,47 @@ function getCPUMove() {
 }
 
 function processMove(cmd, cpu) {
-  // Your code here 
+
+  if (cpu === "r") {
+    console.log(`You pick ${cmd}, computer picks ${cpu}.`)
+    if (cmd === "r") {
+      console.log("You tie.\n")
+    }
+    else if (cmd === "p") {
+      console.log("You win!\n")
+    }
+    else {
+      console.log("You lose...\n")
+    }
+  }
+
+  else if (cpu === "p") {
+    console.log(`You pick ${cmd}, computer picks ${getCPUMove()}.`)
+    if (cmd === "r") {
+      console.log("You lose...\n")
+    }
+    else if (cmd === "p") {
+      console.log("You tie.\n")
+    }
+    else {
+      console.log("You win!\n")
+    }
+  }
+  else if (cpu === "s") {
+    console.log(`You pick ${cmd}, computer picks ${getCPUMove()}.`)
+    
+    if (cmd === "r") {
+      console.log("You win!\n")
+    }
+    else if (cmd === "p") {
+      console.log("You lose...\n")
+    }
+    else {
+      console.log("You tie.\n")
+    }
+  }
+  
+
 }
 
 /******************************* MAIN FUNCTION *******************************/
